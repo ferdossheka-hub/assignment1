@@ -1,20 +1,52 @@
 import java.awt.*;
 
-public abstract class Car {
+public abstract class Car implements Movable {
     private final int nrDoors; // Number of doors on the car
     public double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
     private  Color color; // Color of the car
     public String modelName; // The car model name
 
-    public Car(int nrDoors, double enginePower,
-               Color color,
-               String modelName) {
+    private int x;
+    private int y;
+
+    private String direction;
+
+    @Override
+    public void move(){
+        if (direction.equals ("North")) {
+            y += currentSpeed;
+        }
+        else if (direction.equals ("East")){
+            x +=currentSpeed;
+        }
+        else if (direction.equals ("West")) {
+            x -= currentSpeed;
+        }
+    }
+
+    @Override
+    public void turnLeft() {
+
+    }
+
+    @Override
+    public void turnRight() {
+
+    }
+
+
+    public Car(int nrDoors, double enginePower, Color color, String modelName)
+    {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this. color = color;
         this. modelName = modelName;
         stopEngine();
+
+        this.x = 0;
+        this.y= 0;
+        this.direction = "North";
     }
     public int getNrDoors() {return nrDoors;}
     public double getEnginePower() {
@@ -51,4 +83,7 @@ public abstract class Car {
 
 
     public abstract double speedFactor();
+
+
+
 }
