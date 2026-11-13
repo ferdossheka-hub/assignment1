@@ -7,26 +7,41 @@ public abstract class Car implements Movable {
     private  Color color; // Color of the car
     public String modelName; // The car model name
 
-    private int x;
-    private int y;
+    private double x;
+    private double  y;
 
-    private String direction;
+    private String direction = "UP";
 
     @Override
     public void move(){
-        if (direction.equals ("North")) {
+        if (direction.equals ("UP")) {
             y += currentSpeed;
         }
-        else if (direction.equals ("East")){
+        else if (direction.equals ("DOWN")){
             x +=currentSpeed;
         }
-        else if (direction.equals ("West")) {
+        else if (direction.equals ("RIGHT")) {
             x -= currentSpeed;
+        }
+        else if (direction.equals ("LEFT")) {
+        x -= currentSpeed;
         }
     }
 
     @Override
     public void turnLeft() {
+        if (direction.equals ("UP")) {
+            direction = "LEFT";
+        }
+        else if (direction.equals ("LEFT")) {
+           direction = "DOWN";
+        }
+        else if (direction.equals("DOWN")){
+            direction = "Right";
+        }
+        else if (direction.equals("Right")){
+            direction = "UP";
+        }
 
     }
 
