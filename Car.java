@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public abstract class Car {
-    private int nrDoors; // Number of doors on the car
+    private final int nrDoors; // Number of doors on the car
     public double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
     private  Color color; // Color of the car
@@ -48,7 +48,6 @@ public abstract class Car {
     public void decrementSpeed(double amount) {
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
-    public abstract speedFactor();
 
 
     public abstract double speedFactor();
