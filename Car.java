@@ -47,7 +47,18 @@ public abstract class Car implements Movable {
 
     @Override
     public void turnRight() {
-
+        if (direction.equals ("up")) {
+            direction = "right";
+        }
+        else if  (direction.equals("right")) {
+            direction = "down";
+        }
+        else if (direction.equals("down")){
+            direction = "left";
+        }
+        else if (direction.equals ("left")){
+            direction = "up";
+        }
     }
 
 
