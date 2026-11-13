@@ -48,6 +48,8 @@ public abstract class Car {
     public void decrementSpeed(double amount) {
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
+    public abstract speedFactor();
 
 
+    public abstract double speedFactor();
 }
